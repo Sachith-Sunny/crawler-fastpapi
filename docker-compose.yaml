@@ -1,0 +1,12 @@
+services:
+    python:
+        build:
+            context: ./app/
+            dockerfile: Dockerfile
+        container_name: python
+        restart: always
+        environment:
+            - HOST=mongo
+        ports:
+            - '3000:3000'
+        depends_on: [mongo]
